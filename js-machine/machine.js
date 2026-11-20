@@ -4,6 +4,15 @@ const currentUrl = window.location.origin + window.location.pathname;
 
 let allMembers = [];
 
+// Tentukan kelas warna berdasarkan isi kolom status
+function getStatusClass(stat) {
+    const s = String(stat).trim().toLowerCase();
+
+    if (s === 'tidak aktif') return 'status-tidak-aktif'; // merah
+    if (s === 'aktif') return 'status-aktif';             // hijau
+    return 'status-alumni';                               // selain itu (abu-abu)
+}
+
 // CEK URL
 function checkUrlImmediately() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -61,7 +70,7 @@ async function getData() {
                 <td>${member.thn}</td>
                 <td>${member.masa}</td>
                 <td>
-                    <span class="status-tag ${member.stat.toLowerCase().includes('aktif') ? 'status-aktif' : 'status-alumni'}">
+                    <span class="status-tag ${getStatusClass(member.stat)}">
                         ${member.stat}
                     </span>
                 </td>
