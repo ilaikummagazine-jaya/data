@@ -139,11 +139,6 @@ table td:nth-child(8) {
     color: #2ecc71;
 }
 
-.status-tidak-aktif {
-    background: #fdecea;
-    color: #e74c3c;   /* merah */
-}
-
 .status-alumni {
     background: #f5f5f5;
     color: #95a5a6;
